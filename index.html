@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Roguelike</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    #game {
+      margin-top: 20px;
+      font-size: 40px;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 20px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>⚔️ Мини-Roguelike</h1>
+  <div id="game">Вы встретили 👾 монстра!</div>
+  <button onclick="attack()">Атака</button>
+  <button onclick="heal()">Зелье</button>
+
+  <script>
+    let hp = 10;
+    let monsterHp = 5;
+
+    function attack() {
+      monsterHp -= 2;
+      if (monsterHp > 0) {
+        document.getElementById("game").innerText = 
+          `Вы ударили! 👾 Монстр HP: ${monsterHp}`;
+      } else {
+        document.getElementById("game").innerText = 
+          "🎉 Монстр побеждён!";
+      }
+    }
+
+    function heal() {
+      hp += 2;
+      document.getElementById("game").innerText = 
+        `Вы выпили зелье 🧪. Ваш HP: ${hp}`;
+    }
+  </script>
+</body>
+</html>
